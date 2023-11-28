@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Phần Trăm</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2,
+        h3 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 200px;
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            margin-top: 16px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        #ketQuaThatBai {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Nhập giá trị hàng thành công và thất bại:</h2>
+
+    <label for="a">Tổng số lượng thành công:</label>
+    <input type="number" id="a" name="a">
+
+    <label for="b">Tổng số lượng thất bại:</label>
+    <input type="number" id="b" name="b">
+
+    <button onclick="tinhPhanTram()">Tính Phần Trăm</button>
+
+    <h3>Kết quả:</h3>
+    <p id="tinhTong"></p>
+    <p id="ketQuaThanhCong"></p>
+    <p id="ketQuaThatBai"></p>
+    <script>
+        function tinhPhanTram() {
+            // Lấy giá trị của a và b từ các ô input
+            var a = document.getElementById("a").value;
+            var b = document.getElementById("b").value;
+            var tinhTong = parseFloat(a) + parseFloat(b);
+            // Chuyển đổi chuỗi sang số và tính phần trăm
+            var phanTramThanhCong = (parseFloat(a) / tinhTong) * 100;
+            var phanTramThatBai = (parseFloat(b) / tinhTong) * 100;
+            // Hiển thị kết quả
+            document.getElementById("ketQuaThanhCong").innerHTML = "Phần trăm thành công: " + phanTramThanhCong.toFixed(2) + "%";
+            document.getElementById("ketQuaThatBai").innerHTML = "Phần trăm thất bại: " + phanTramThatBai.toFixed(2) + "%";
+            document.getElementById("tinhTong").innerHTML = "Tổng số lượng: " + tinhTong.toLocaleString() + " cái";
+
+        }
+    </script>
+
+</body>
+
+</html>
