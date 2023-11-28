@@ -58,42 +58,39 @@
         #ketQuaThatBai {
             color: red;
         }
-    </style>
+        </style>
 </head>
 
 <body>
-
+    
     <h2>Nhập giá trị hàng thành công và thất bại:</h2>
-
-    <label for="a">Tổng số lượng thành công:</label>
-    <input type="number" id="a" name="a">
-
-    <label for="b">Tổng số lượng thất bại:</label>
-    <input type="number" id="b" name="b">
-
+    <label for="tinhThanhCong">Nhập dãy số thành công (ngăn cách bằng dấu phẩy):</label>
+    <input type="text" id="tinhThanhCong" name="tinhThanhCong">
+    <button onclick="tinhTongVaSoLuongCumSoA()">Tính Tổng và Số Lượng Cụm Số</button>
+    <p id="hienThiThanhCong"></p>
+    
+    <label for="tinhThatBai">Nhập dãy số thất bại (ngăn cách bằng dấu phẩy):</label>
+    <input type="text" id="tinhThatBai" name="tinhThatBai">
+    <button onclick="tinhTongVaSoLuongCumSoB()">Tính Tổng và Số Lượng Cụm Số</button>
+    <p id="hienThiThatBai"></p>
+    
+    
+    
+    
+    
+    
     <button onclick="tinhPhanTram()">Tính Phần Trăm</button>
-
+    
     <h3>Kết quả:</h3>
+    <p id="tongBuocNhay"></p>
     <p id="tinhTong"></p>
     <p id="ketQuaThanhCong"></p>
     <p id="ketQuaThatBai"></p>
-    <script>
-        function tinhPhanTram() {
-            // Lấy giá trị của a và b từ các ô input
-            var a = document.getElementById("a").value;
-            var b = document.getElementById("b").value;
-            var tinhTong = parseFloat(a) + parseFloat(b);
-            // Chuyển đổi chuỗi sang số và tính phần trăm
-            var phanTramThanhCong = (parseFloat(a) / tinhTong) * 100;
-            var phanTramThatBai = (parseFloat(b) / tinhTong) * 100;
-            // Hiển thị kết quả
-            document.getElementById("ketQuaThanhCong").innerHTML = "Phần trăm thành công: " + phanTramThanhCong.toFixed(2) + "%";
-            document.getElementById("ketQuaThatBai").innerHTML = "Phần trăm thất bại: " + phanTramThatBai.toFixed(2) + "%";
-            document.getElementById("tinhTong").innerHTML = "Tổng số lượng: " + tinhTong.toLocaleString() + " cái";
-
-        }
-    </script>
-
+    
+    
+    
+    <script src="main.js"></script>
+    
 </body>
 
 </html>
